@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Xml.Schema;
 using System.Web.Services;
+using System.Data.SqlClient;
 
 namespace assessment
 {
@@ -19,8 +20,36 @@ namespace assessment
         [WebMethod]
         public static string MyCSharpFunction(string inputParameter)
         {
-            // Your C# code here
-            return "Hello from C#! You sent: " + inputParameter;
+           string databasePath = "|DataDirectory|\\Database.mdf";
+
+   
+        int row = 0;
+            string connectionString = $"Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename={databasePath};Integrated Security=True"; ;
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                // Database operations go here
+            }
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                string sqlQuery = $"SELECT * FROM Application WHERE firstChoice='{inputParameter}'";
+                using (SqlCommand command = new SqlCommand(sqlQuery, connection))
+                {
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            // Access data using reader["ColumnName"]
+                            row++;
+                        }
+                    }
+                }
+                
+            }
+            
+            return "Hello from C#! You receive: " + row.ToString();
         }
 
 

@@ -165,7 +165,7 @@ function getResult() {
         basicQualification = false;
     }
 
-    var inputParameter = basicQualification
+    var inputParameter = document.getElementById('ddlCourse').value
     $.ajax({
         type: "POST",
         url: "assessment.aspx/MyCSharpFunction", // Name of the WebMethod
@@ -175,6 +175,7 @@ function getResult() {
         success: function (response) {
             // Handle the response from the server
             var result = response.d;
+            alert(inputParameter)
             alert(result);
         },
         error: function (error) {
