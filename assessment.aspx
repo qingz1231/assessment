@@ -177,6 +177,46 @@
 
   </section>
 
+    <style>
+    .result-rows > div{
+      margin:3%;
+      justify-content: center;
+    }
+
+    .result-rows{
+      padding:5%;
+      
+    }
+
+    .row-title{
+      text-align: right;
+    }
+  </style>
+
+  <section class="text-center" style="padding:5% 15%;">
+    <h1>Assessment Result</h1>
+    <p>Note: This result is only a prediction based on current circumstances, result may change by time</p>
+
+    <div class="result-rows">
+      <div class="row">
+        <div class="col-lg-3 row-title">Interested Programme</div>
+        <div class="col-lg-5" id="resultProgramme">srsd</div>
+      </div>
+
+      <div class="row">
+        <div class="col-lg-3 row-title">Assessment result</div>
+        <div class="col-lg-5" id="resultAssessment">sdfds</div>
+      </div>
+
+      <div class="row">
+        <div class="col-lg-3 row-title">Reason</div>
+        <div class="col-lg-5" id="resultReason">sdfdsf</div>
+      </div>
+    </div>
+
+      <button class="btn btn-block btn-primary btn-lg">Enroll</button>
+  </section>
+
 
 </body>
 <script src="js/common.js"></script>

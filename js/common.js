@@ -159,29 +159,55 @@ document.getElementById("ddlQualification").addEventListener('change', function 
 function getResult() {
     var totalQuestion = document.getElementById('questionRow').getElementsByClassName('form-group').length;
     var totalTrue = document.querySelectorAll('.option-box.selected[data-value="true"]').length;
+    var resultAssessment = document.getElementById('resultAssessment')
+    var resultReason = document.getElementById('resultReason')
 
-    var basicQualification = true;
+    document.getElementById('resultProgramme').innerHTML = document.getElementById('ddlCourse').value;
+
     if (totalQuestion > totalTrue) {
-        basicQualification = false;
+        resultAssessment.innerHTML = "Rejected"
+        resultReason.innerHTML = "Basic Qualification not met"
     }
 
-    var inputParameter = document.getElementById('ddlCourse').value
-    $.ajax({
-        type: "POST",
-        url: "assessment.aspx/MyCSharpFunction", // Name of the WebMethod
-        data: JSON.stringify({ inputParameter: inputParameter }),
-        contentType: "application/json; charset=utf-8",
-        dataType: "json",
-        success: function (response) {
-            // Handle the response from the server
-            var result = response.d;
-            alert(inputParameter)
-            alert(result);
-        },
-        error: function (error) {
-            alert("Error: " + error.responseText);
-        }
-    });
+    else {
+        var inputParameter = document.getElementById('ddlCourse').value
+        $.ajax({
+            type: "POST",
+            url: "assessment.aspx/MyCSharpFunction", // Name of the WebMethod
+            data: JSON.stringify({ inputParameter: inputParameter }),
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            success: function (response) {
+                // Handle the response from the server
+                var result = response.d;
+
+
+
+                if (result < 5) {
+                    resultAssessment.innerHTML = "Approved (High)"
+                    resultReason.innerHTML = "N/A"
+                }
+                else if (result < 10) {
+                    resultAssessment.innerHTML = "Approved (Medium)"
+                    resultReason.innerHTML = "N/A"
+                }
+
+                else if (result < 20) {
+                    resultAssessment.innerHTML = "Approved (Low)"
+                    resultReason.innerHTML = "N/A"
+                }
+
+                else {
+                    resultAssessment.innerHTML = "Rejected"
+                    resultReason.innerHTML = result;
+
+                }
+            },
+            error: function (error) {
+                alert("Error: " + error.responseText);
+            }
+        });
+    }
 
 }
 

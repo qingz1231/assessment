@@ -18,7 +18,7 @@ namespace assessment
         }
 
         [WebMethod]
-        public static string MyCSharpFunction(string inputParameter)
+        public static int MyCSharpFunction(string inputParameter)
         {
            string databasePath = "|DataDirectory|\\Database.mdf";
 
@@ -49,7 +49,7 @@ namespace assessment
                 
             }
             
-            return "Hello from C#! You receive: " + row.ToString();
+            return row;
         }
 
 
