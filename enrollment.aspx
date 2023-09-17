@@ -57,7 +57,7 @@
                 <img src="#" id="enhancedImage" style="width:200px;height:auto"/>
             </div>
 
-           <button class="btn btn-block btn-primary btn-lg" onclick="sendImageToEnhance()">Submit</button>
+           <button class="btn btn-block btn-primary btn-lg" onclick="processImage()">Submit</button>
    
 
     
