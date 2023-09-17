@@ -16,6 +16,7 @@
     <link rel="stylesheet" type="text/css" href="css/animation.css">
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <link rel="stylesheet" type="text/css" href="plugins/themefisherFont/style.css">
+    <script src="https://cdnjs.deepai.org/deepai.min.js"></script>
     <script src="js/enroll.js"></script>
 </head>
 
@@ -52,9 +53,11 @@
             <div class="form-group">
                 <label>Result</label><br>
                 <input id="resultImage" type="file" >
+
+                <img src="#" id="enhancedImage" style="width:200px;height:auto"/>
             </div>
 
-           <button class="btn btn-block btn-primary btn-lg" onclick="getText()">Submit</button>
+           <button class="btn btn-block btn-primary btn-lg" onclick="sendImageToEnhance()">Submit</button>
    
 
     
@@ -72,5 +75,4 @@
 
 
 </body>
-<script src="js/common.js"></script>
 </html>

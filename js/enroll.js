@@ -1,41 +1,4 @@
-﻿function sendImageToAPI() {
-    return new Promise(function (resolve, reject) {
-        var formData = new FormData();
-        formData.append('image', $('#resultImage')[0].files[0]);
-        alert("fucker");
-        $.ajax({
-            method: 'POST',
-            url: 'https://api.api-ninjas.com/v1/imagetotext',
-            headers: { 'X-Api-Key': 'AtBRLxMS6py6QtpS1KVykw==tBCScWZWUhaaUMQi' },
-            data: formData,
-            enctype: 'multipart/form-data',
-            processData: false,
-            contentType: false,
-            success: function (result) {
-                alert(result);
-                resolve(1); // Resolve the promise with a value of 1
-            },
-            error: function ajaxError(jqXHR, textStatus, errorThrown) {
-                alert(jqXHR.responseText);
-                reject(0); // Reject the promise with a value of 0
-            }
-        });
-    });
-}
-
-async function getText() {
-    let imageTxt
-    sendImageToAPI()
-        .then(function (response) {
-            imageTxt = respone;
-            console.log(imageTxt);
-        })
-        .catch(function (error) {
-            alert("API call failed with error: " + error);
-        });
-}
-
-
+﻿
 async function sendImageToAPI() {
     return new Promise(function (resolve, reject) {
         var formData = new FormData();
@@ -90,6 +53,34 @@ async function getText() {
         console.error("Error:", error);
         alert("Failed");
     }
+}
+
+async function sendImageToEnhance() {
+    
+
+    const formData = new FormData();
+    formData.append("upscale_factor", "6");
+    formData.append("image", $('#resultImage')[0].files[0]);
+
+    const settings = {
+        async: true,
+        crossDomain: true,
+        url: 'https://api.picsart.io/tools/1.0/upscale/enhance',
+        method: 'POST',
+        headers: {
+            accept: 'application/json',
+            'x-picsart-api-key': 'xD0QVHRUeSz4jth4xKNR4JSZ0VjhQGwT'
+        },
+        processData: false,
+        contentType: false,
+        mimeType: 'multipart/form-data',
+        data: formData
+    };
+
+    $.ajax(settings).done(function (response) {
+        console.log(response);
+        
+    });
 }
 
 
