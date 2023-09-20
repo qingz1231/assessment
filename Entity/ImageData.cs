@@ -9,5 +9,11 @@ namespace assessment
     {
         public string text { get; set; }
         public BoundingBox boundingBox { get; set; }
+
+
+        public override string ToString()
+        {
+            return $"Text: {text}, BoundingBox: {boundingBox}";
+        }
     }
 }

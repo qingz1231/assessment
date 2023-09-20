@@ -20,36 +20,7 @@ namespace assessment
         [WebMethod]
         public static int MyCSharpFunction(string inputParameter)
         {
-           string databasePath = "|DataDirectory|\\Database.mdf";
-
-   
-        int row = 0;
-            string connectionString = $"Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename={databasePath};Integrated Security=True"; ;
-            using (SqlConnection connection = new SqlConnection(connectionString))
-            {
-                connection.Open();
-                // Database operations go here
-            }
-
-            using (SqlConnection connection = new SqlConnection(connectionString))
-            {
-                connection.Open();
-                string sqlQuery = $"SELECT * FROM Application WHERE firstChoice='{inputParameter}'";
-                using (SqlCommand command = new SqlCommand(sqlQuery, connection))
-                {
-                    using (SqlDataReader reader = command.ExecuteReader())
-                    {
-                        while (reader.Read())
-                        {
-                            // Access data using reader["ColumnName"]
-                            row++;
-                        }
-                    }
-                }
-                
-            }
-            
-            return row;
+            return ApplicationController.getRecordTotal(inputParameter);
         }
 
 

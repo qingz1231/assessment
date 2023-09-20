@@ -130,7 +130,7 @@ async function sendImageToEffect() {
 async function processImage() {
     try {
         imageUrl = await sendImageToEffect();
-        //enhancedImageUrl = await sendImageToEnhance(imageUrl);
+        enhancedImageUrl = await sendImageToEnhance(imageUrl);
         file = await createFileFromImageUrl(imageUrl)
         getText(file);
 
@@ -155,6 +155,9 @@ async function createFileFromImageUrl(imageUrl) {
         return null;
     }
 }
+
+
+
 
 
 

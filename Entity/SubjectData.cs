@@ -18,6 +18,7 @@ namespace assessment
         new Subject { code = "1249", name = "Sejarah" },
         new Subject { code = "1449", name = "Mathematics" },
         new Subject { code = "1511", name = "Science" },
+        new Subject { code = "2611", name = "Pendidikan Seni Visual" },
         new Subject { code = "3472", name = "Additional Mathematics" },
         new Subject { code = "4531", name = "Physics" },
         new Subject { code = "4541", name = "Chemistry" },

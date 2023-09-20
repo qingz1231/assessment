@@ -21,6 +21,7 @@
 </head>
 
 <body>
+    <form id="form1" runat="server">
     <!--header-->
     <section style="background-color: blue;min-height: 250px;width: 100%;">
 
@@ -30,34 +31,43 @@
         <h1>Enrollment</h1>
 
         <div class="text-left">
-            <%--<div class="form-group">
+            <div class="form-group">
                 <label>Name</label>
-                <input id="txtName" type="text" class="form-control p-2">
+                <asp:TextBox ID="txtName" class="form-control p-2" runat="server"></asp:TextBox>
+               
             </div>
 
             <div class="form-group">
                 <label>IC</label>
-                <input id="txtIc" type="number" class="form-control p-2">
+                <asp:TextBox ID="txtIc" class="form-control p-2" runat="server"></asp:TextBox>
             </div>
 
             <div class="form-group">
                 <label>Phone</label>
-                <input id="txtPhone" type="tel" class="form-control p-2">
+                <asp:TextBox ID="txtPhone" class="form-control p-2" runat="server"></asp:TextBox>
             </div>
 
             <div class="form-group">
-                <label>Email</label>
-                <input id="txtEmail" type="email" class="form-control p-2">
-            </div>--%>
+                <label>Email
+                </label>
+                <asp:TextBox ID="txtEmail" class="form-control p-2" runat="server"></asp:TextBox>
+            </div>
 
             <div class="form-group">
+                <label>Result</label><br>
+                <asp:FileUpload ID="resultImage" runat="server" />
+            </div>
+            <asp:Button class="btn btn-block btn-primary btn-lg" ID="enrollBtn" runat="server" OnClick="enrollBtn_Click" Text="Submit" />
+            <asp:Image ID="enhancedImage" runat="server" style="width:400px;height:auto"/>
+            <!---fix image processing fix if got time-->
+           <%-- <div class="form-group">
                 <label>Result</label><br>
                 <input id="resultImage" type="file" >
 
                 <img src="#" id="enhancedImage" style="width:200px;height:auto"/>
             </div>
 
-           <button class="btn btn-block btn-primary btn-lg" onclick="processImage()">Submit</button>
+           <button class="btn btn-block btn-primary btn-lg" onclick="processImage()">Submit</button>--%>
    
 
     
@@ -67,6 +77,14 @@
 
 
     </section>
+
+
+
+
+
+
+
+    </form>
 
 
 

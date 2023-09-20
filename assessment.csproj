@@ -71,15 +71,20 @@
     <Content Include="css\animation.css" />
     <Content Include="css\style.css" />
     <Content Include="enrollment.aspx" />
-    <Content Include="JavaScript.js" />
+    <Content Include="error.html" />
+    <Content Include="js\checkStatus.js" />
+    <Content Include="success.html" />
     <Content Include="js\common.js" />
     <Content Include="js\enroll.js" />
     <Content Include="plugins\boostrap\css\bootstrap.min.css" />
     <Content Include="plugins\boostrap\js\bootstrap.min.js" />
     <Content Include="plugins\themefisherFont\style.css" />
     <Content Include="Web.config" />
+    <Content Include="CheckStatus.aspx" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entity\Application.cs" />
+    <Compile Include="ApplicationController.cs" />
     <Compile Include="assessment.aspx.cs">
       <DependentUpon>assessment.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -87,7 +92,7 @@
     <Compile Include="assessment.aspx.designer.cs">
       <DependentUpon>assessment.aspx</DependentUpon>
     </Compile>
-    <Compile Include="BoundingBox.cs" />
+    <Compile Include="Entity\BoundingBox.cs" />
     <Compile Include="enrollment.aspx.cs">
       <DependentUpon>enrollment.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -95,10 +100,18 @@
     <Compile Include="enrollment.aspx.designer.cs">
       <DependentUpon>enrollment.aspx</DependentUpon>
     </Compile>
-    <Compile Include="ImageData.cs" />
+    <Compile Include="Entity\GmailSMTP.cs" />
+    <Compile Include="Entity\ImageData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Subject.cs" />
-    <Compile Include="SubjectData.cs" />
+    <Compile Include="Entity\Subject.cs" />
+    <Compile Include="Entity\SubjectData.cs" />
+    <Compile Include="CheckStatus.aspx.cs">
+      <DependentUpon>CheckStatus.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CheckStatus.aspx.designer.cs">
+      <DependentUpon>CheckStatus.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include=".editorconfig" />
